@@ -13,6 +13,7 @@ let _isFullscreen           = false
 
 export const mountFullscreen = (node) => {
 
+  return;
   log(_name + ': mountFullscreen')
 
   if(node && node.appendChild) {
@@ -39,7 +40,7 @@ export const mountFullscreen = (node) => {
     __brfv5__fullscreen.appendChild(__brfv5__img_large)
     __brfv5__fullscreen.appendChild(__brfv5__img_small)
 
-   // node.appendChild(__brfv5__fullscreen);
+    node.appendChild(__brfv5__fullscreen);
   }
 }
 
