@@ -41,7 +41,7 @@ let numFacesToTrack       = 1 // set be run()
 
 
 const urlParams = new URLSearchParams(window.location.search);
-const modelPath = urlParams.get('path');
+const modelPath = urlParams.get('path') || 'colored-glazz.json';
 
 let models = [
 

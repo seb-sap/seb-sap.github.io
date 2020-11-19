@@ -39,7 +39,7 @@ export const mountFullscreen = (node) => {
     __brfv5__fullscreen.appendChild(__brfv5__img_large)
     __brfv5__fullscreen.appendChild(__brfv5__img_small)
 
-    node.appendChild(__brfv5__fullscreen);
+   // node.appendChild(__brfv5__fullscreen);
   }
 }
 
