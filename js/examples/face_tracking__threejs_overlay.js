@@ -40,39 +40,40 @@ import { hide3DModels, updateByFace }       from '../ui/ui__overlay__threejs.js'
 let numFacesToTrack       = 1 // set be run()
 
 
-const urlParams = new URLSearchParams(window.location.search);
-const modelPath = urlParams.get('path') || 'colored-glazz.json';
+const providePath = () => {
+  return [
 
-let models = [
-
-  // Load the occlusion model (an invisible head). It hides anything behind it.
-
-  {
-    pathToModel:          './assets/3d/occlusion_head_v5.2.0.json',
-    pathToTextures:       './assets/3d/textures/',
-
-    nameModel:            null,
-
-    isOcclusionModel:     true,
-    isMaterialCollection: false
-  },
-
-  // The actual 3d model as exported from ThreeJS editor.
-  // either rayban.json or earrings.json
-  // Textures might be embedded or set as file name in a certain path.
-
-  {
-    pathToModel:          './assets/3d/' + modelPath,
-    pathToTextures:       './assets/3d/textures/',
-
-    nameModel:            'black',
-
-    isOcclusionModel:     false,
-    isMaterialCollection: false
-  }
-]
+    // Load the occlusion model (an invisible head). It hides anything behind it.
+  
+    {
+      pathToModel:          './assets/3d/occlusion_head_v5.2.0.json',
+      pathToTextures:       './assets/3d/textures/',
+  
+      nameModel:            null,
+  
+      isOcclusionModel:     true,
+      isMaterialCollection: false
+    },
+  
+    // The actual 3d model as exported from ThreeJS editor.
+    // either rayban.json or earrings.json
+    // Textures might be embedded or set as file name in a certain path.
+  
+    {
+      pathToModel:          './assets/3d/' + window.__GLOBAL_PATH || 'colored-glazz.json',
+      pathToTextures:       './assets/3d/textures/',
+  
+      nameModel:            'black',
+  
+      isOcclusionModel:     false,
+      isMaterialCollection: false
+    }
+  ];
+}
 
 export const configureExample = (brfv5Config, t3d) => {
+
+  const models = providePath();
 
   configureNumFacesToTrack(brfv5Config, numFacesToTrack)
 
@@ -213,5 +214,8 @@ export const run = (_numFacesToTrack = 1) => {
 }
 
 timeoutId = setTimeout(() => { run() }, 1000)
+
+
+window.__AR_RUN = run;
 
 export default { run }

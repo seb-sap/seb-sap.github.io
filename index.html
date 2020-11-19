@@ -102,12 +102,14 @@
 
 <script>
   document.getElementById('selectBlack').addEventListener('click', (event) => {
-    document.getElementById('__brfv5').outerHTML = '';
-    window.location.href = window.location.protocol + "//" + window.location.host + window.location.pathname + '?path=rayban_v5.2.0.json'
+    window.__GLOBAL_PATH = 'rayban_v5.2.0.json';
+    window.__AR_RUN();
+    //window.location.href = window.location.protocol + "//" + window.location.host + window.location.pathname + '?path=rayban_v5.2.0.json'
   });
   document.getElementById('selectColored').addEventListener('click', (event) => {
-    document.getElementById('__brfv5').outerHTML = '';
-    window.location.href = window.location.protocol + "//" + window.location.host + window.location.pathname + '?path=colored-glazz.json'
+    window.__GLOBAL_PATH = 'colored-glazz.json';
+    window.__AR_RUN();
+    //window.location.href = window.location.protocol + "//" + window.location.host + window.location.pathname + '?path=colored-glazz.json'
   });
 </script>
 <script src="./js/upscale.js"></script>
